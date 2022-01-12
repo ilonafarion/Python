@@ -1,0 +1,11 @@
+#counts all four-digit numbers less than 5678
+def list4digits():
+    list = []
+    for x in range (1000,5678):
+        y = str(x)
+        if (y [0] != y [1] and y [0] != y [2] and y [0] != y [3] and y [1] != y [2] and y [1] != y [3] and y [2] != y [
+            3]):
+            list.append(y)
+    print(len(list))
+list4digits ()
+# 2336 numbers
