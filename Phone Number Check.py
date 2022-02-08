@@ -47,3 +47,15 @@ for i in range(len(text)):
     isnumber = text[i:i+12]
     if isPhoneNumber(isnumber):
         print('phone number found: ' + isnumber)
+        
+# ver3 using regex:
+import re
+
+PNregex =  re.compile(r'\d{3}-\d{3}-\d{4}')
+
+text = input('please input text')
+match = PNregex.search(text)
+if match == None:
+    print('no phone number found')
+else:
+    print( 'phone number found ' + match.group())
