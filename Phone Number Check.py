@@ -64,3 +64,31 @@ if match is None:
      print('no phone number found')
 else:
     print( 'phone number found ' + area)
+
+    
+ # ver4 with a few possible h+phone number formats
+import re
+import sys
+
+try:
+    while True:
+        PNregex =  re.compile(r'(\(| )?(\d{3})(\)| )?(-| )?(\d{3}(-| )?\d)')
+        print('input ur text')
+        text = input()
+        match = PNregex.search(text)
+        if match is None:
+            print( 'no phone number found')
+            print('do you want to continue?')
+            answer = input()
+            if answer == 'yes':
+               continue
+            elif answer == 'no':
+                break
+            else:
+                print('please input yes/no')
+                continue
+        else:
+            print('phone number is: ' + match.group())
+except KeyboardInterrupt:
+    sys.exit()
+   
