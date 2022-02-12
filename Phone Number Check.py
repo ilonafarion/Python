@@ -48,7 +48,7 @@ for i in range(len(text)):
     if isPhoneNumber(isnumber):
         print('phone number found: ' + isnumber)
         
-# ver3 using regex:
+# ver3 using regex and multiple assignment for groups:
 import re,sys
 PNregex =  re.compile(r'(\d{3})-(\d{3}-\d{3})')
 text = input('please input text')
@@ -63,7 +63,7 @@ except:
 if match is None:
      print('no phone number found')
 else:
-    print( 'phone number found ' + area)
+    print( 'phone number area code found ' + area)
 
     
  # ver4 using regex with a few possible phone number formats
@@ -72,7 +72,7 @@ import sys
 
 try:
     while True:
-        PNregex =  re.compile(r'(\(| )?(\d{3})(\)| )?(-| )?(\d{3}(-| )?\d)')
+        PNregex =  re.compile(r'(\(| )*?(\d{3})(\)| )*?(-| )*?(\(| )*?(\d{3}(\)| )*?(-| )*?(\(| )*?\d(\(| )*?)')
         print('input ur text')
         text = input()
         match = PNregex.search(text)
