@@ -2,7 +2,7 @@
 
 # version 1 checks if the input is a phone numebr (basic program without regex)
 def isPhoneNumber(text):
-    if len(text) != 12:
+    if len(text) != 11:
         return False
     for i in range(0,3):
         if not text[i].isdecimal():
@@ -14,7 +14,7 @@ def isPhoneNumber(text):
             return  False
     if text[7] != '-':
         return False
-    for i in range(8,12):
+    for i in range(8,11):
         if not text[i].isdecimal():
             return False
     return True
@@ -27,7 +27,7 @@ else:
     
 # version 2:  searches for a phone number in a longer text:
 def isPhoneNumber(text):
-    if len(text) != 12:
+    if len(text) != 11:
         return False
     for i in range(0,3):
         if not text[i].isdecimal():
@@ -39,20 +39,20 @@ def isPhoneNumber(text):
             return  False
     if text[7] != '-':
         return False
-    for i in range(8,12):
+    for i in range(8,11):
         if not text[i].isdecimal():
             return False
     return True
 
-text = 'Please feel free to call me at 123-123-1235. Take care!'
+text = 'Please feel free to call me at 123-123-123. Take care!'
 for i in range(len(text)):
-    isnumber = text[i:i+12]
+    isnumber = text[i:i+11]
     if isPhoneNumber(isnumber):
         print('phone number found: ' + isnumber)
         
 # version 3 using regex and multiple assignment for groups:
 import re,sys
-PNregex =  re.compile(r'(\d{3})-(\d{3}-\d{3})')
+PNregex =  re.compile(r'(\d{2})-(\d{3}-\d{3}-\d{3})')
 text = input('please input text')
 
 match = PNregex.search(text)
@@ -74,7 +74,7 @@ import sys
 
 try:
     while True:
-        PNregex =  re.compile(r'(\(| )*(\d{3})(\)| )*(-| )*(\(| )*(\d{3}(\)| )*(-| )*(\(| )*\d(\(| )*)')
+        PNregex =  re.compile(r'(\(| )*(\d{3})(\)| )*(-| )*(\(| )*(\d{3}(\)| )*(-| )*(\(| )*\d{3}(\(| )*)')
         print('input ur text')
         text = input()
         match = PNregex.search(text)
