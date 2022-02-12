@@ -1,4 +1,6 @@
-# checks if the input is a phone numebr (basic program without regex)
+# 4 versions of a program that looks for a phone number a in a text provided.
+
+# version 1 checks if the input is a phone numebr (basic program without regex)
 def isPhoneNumber(text):
     if len(text) != 12:
         return False
@@ -48,7 +50,7 @@ for i in range(len(text)):
     if isPhoneNumber(isnumber):
         print('phone number found: ' + isnumber)
         
-# ver3 using regex and multiple assignment for groups:
+# version 3 using regex and multiple assignment for groups:
 import re,sys
 PNregex =  re.compile(r'(\d{3})-(\d{3}-\d{3})')
 text = input('please input text')
@@ -66,7 +68,7 @@ else:
     print( 'phone number area code found ' + area)
 
     
- # ver4 using regex with a few possible phone number formats
+ # version 4 using regex with a few possible phone number formats
 import re
 import sys
 
