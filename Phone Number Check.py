@@ -62,7 +62,5 @@ except:
     
 if match is None:
      print('no phone number found')
-elif text == '':
-    sys.exit()
 else:
     print( 'phone number found ' + area)
