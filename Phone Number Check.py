@@ -74,7 +74,7 @@ import sys
 
 try:
     while True:
-        PNregex =  re.compile(r'(\(| )*?(\d{3})(\)| )*?(-| )*?(\(| )*?(\d{3}(\)| )*?(-| )*?(\(| )*?\d(\(| )*?)')
+        PNregex =  re.compile(r'(\(| )*(\d{3})(\)| )*(-| )*(\(| )*(\d{3}(\)| )*(-| )*(\(| )*\d(\(| )*)')
         print('input ur text')
         text = input()
         match = PNregex.search(text)
