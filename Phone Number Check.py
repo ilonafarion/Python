@@ -77,16 +77,18 @@ try:
         text = input()
         match = PNregex.search(text)
         if match is None:
-            print( 'no phone number found')
-            print('do you want to continue?')
-            answer = input()
-            if answer == 'yes':
-               continue
-            elif answer == 'no':
-                break
-            else:
-                print('please input yes/no')
-                continue
+            while True:
+                print ('no phone number found')
+                print ('do you want to continue?')
+                answer = input ()
+
+                if answer == 'yes':
+                    break
+                elif answer == 'no':
+                    sys.exit()
+                else:
+                    print ('please input yes/no')
+           
         else:
             print('phone number is: ' + match.group())
 except KeyboardInterrupt:
