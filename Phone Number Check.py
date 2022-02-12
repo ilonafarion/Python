@@ -66,7 +66,7 @@ else:
     print( 'phone number found ' + area)
 
     
- # ver4 with a few possible h+phone number formats
+ # ver4 using regex with a few possible phone number formats
 import re
 import sys
 
