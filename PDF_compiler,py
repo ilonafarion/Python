@@ -1,0 +1,26 @@
+import PyPDF2, os
+
+#compiles all PDFs stored in a given location
+
+pdfFiles =[]
+
+for pdf in os.listdir(r"C:\Users\Ilona\PycharmProjects\pythonProject\PDFs"):
+    if pdf.endswith('.pdf'):
+        pdfFiles.append(pdf)
+
+pdfWriter = PyPDF2.PdfFileWriter ()
+pdf_names = []
+for pdf in pdfFiles:
+    path = r'C:\Users\Ilona\PycharmProjects\pythonProject\PDFs'
+    pdfPath = os.path.join(path, pdf)
+    pdf_names.append(pdfPath)
+    pdfFile = open(pdfPath, 'rb')
+    pdfFileReader= PyPDF2.PdfFileReader(pdfFile)
+    for pageNum in range(pdfFileReader.numPages):
+        pageObj = pdfFileReader.getPage(pageNum)
+        pdfWriter.addPage(pageObj)
+
+
+outputPdf = open('combined.pdf', 'wb')
+pdfWriter.write(outputPdf)
+outputPdf.close()
